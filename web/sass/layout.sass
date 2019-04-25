@@ -1,0 +1,475 @@
+@import 'normalize'
+
+body
+	.app
+		background-color: $color-white
+
+section
+	&.image-centered
+		.table-block
+			min-height: 0
+			+desktop
+				min-height: 500px
+.modified-bg
+	background-color: rgba($color-grey, 0.8)
+	padding: 15px
+	color: #ffffff
+	
+.border
+	&-box
+		background-color: $color-white
+		margin-bottom: 0
+		display: inline-block
+		width: 100%
+		&:not(:last-child)
+			margin-bottom: 20px
+	&-head
+		+border-dir('bottom', 3px, solid, $color-light-grey)
+		min-width: 100px
+		display: inline-block
+		height: 2px
+		margin-top: 20px
+		position: relative
+		&:after
+			content: ""
+			position: absolute
+			left: 15%
+			+border-dir('bottom', 3px, solid, $color-theme)
+			min-width: 70px
+
+.main-content
+	+calc( min-height, '100vh - 50px')
+
+.icon
+	width: 25px
+	text-align: center
+	display: inline-block
+	fill: $color-white
+	vertical-align: top
+
+.bg-light
+	background-color: $color-light-grey
+	height: 400px
+	+mobile
+		height: 300px
+
+.container
+	max-height: 100%
+	+desktop
+		width: 90%
+		max-width: 1610px
+	&-sm
+		+laptop
+			max-width: 75%
+
+#preloader
+	height: 100vh
+	padding: 0 25%
+	&.loader
+		text-align: center
+	span
+		background-color: rgba($color-light-grey, 0.2)
+		height: 75px
+		width: 75px
+		display: inline-block
+		padding-top: 20px
+		margin-bottom: 50px
+		+animation(slide-up 0.5s ease-in-out)
+		+box-shadow(0 22px 130px rgba($color-grey, 0.5))
+		+border-radius(50%)
+		border: 2px solid rgba($color-theme, 0.5)
+
+	.bar
+		width: 0
+		background-color: rgba($color-theme, 0.8)
+		height: 10px
+		animation-delay: 1s
+		+animation(slide-up 0.5s ease-in-out)
+		+transition-slow
+		&:after
+			content: ""
+			height: 10px
+			width: 100%
+			position: absolute
+			z-index: -1
+			left: 0
+			background-color: $color-light-grey
+
+
+
+//Bootstrap
+.tab-content
+	.card
+		background-color: transparent
+		border: none
+		.card-header
+			+tablet
+				display: none
+		.card-body
+			padding: 0
+
+		.collapse
+			+tablet
+				display: block
+	& >
+		.tab-pane
+			+mobile
+				display: block !important
+				opacity: 1
+.nav-tabs
+	display: none 
+	margin-bottom: 25px
+	border-bottom: 1px solid rgba($color-grey, 0.4)
+	font-size: 12px
+	+tablet
+		+flexbox
+	& >
+		li 
+			border: none
+			text-transform: uppercase
+			font-weight: 500
+			& > 
+				a
+					border: none
+					background-color: transparent
+					color: rgba($color-black, 0.5)
+					text-align: center
+					&:hover
+						background-color: transparent
+						color: rgba($color-black, 1)
+
+
+			&.active
+				& >
+					a, a:hover, a:visited, a:focus
+						border: none
+						+border-dir('bottom', 3px, solid, $color-theme-option)
+						background-color: transparent
+					a, a:focus
+						color: $color-theme-option
+.media
+	padding: 15px 0
+	margin-bottom: 15px
+	&:not(:last-child)
+		+desktop
+			margin-bottom: 40px
+	+mobile
+		margin-bottom: 0
+		+border-dir('top', 1px, solid, rgba($color-light-grey, 0.7))
+	+tablet-only
+		display: block
+		min-height: 175px
+	&-body
+		+tablet-only
+			margin-top: 15px
+	.fa
+		&.lg
+			font-size: 20px
+
+//Owl Carousel
+.owl-carousel
+	.owl
+		&-nav
+			& [class*="owl-"]
+				font-family: "Font Awesome 5 Free"
+				font-size: 0
+				opacity: 0.4
+				padding: 20px
+				font-weight: 600
+				position: absolute
+				top: 42%
+				&::before
+					color: rgba($color-white, 0.8)
+					font-size: 40px
+					content: "\f104"
+				&:hover
+					opacity: 1
+			.owl
+				&-prev
+					float: left
+					left: 0
+				&-next
+					float: right
+					right: 0
+					&:before
+						content: "\f105"
+	.item
+		figure
+			margin-bottom: 0
+
+.item-carousel
+	.owl-nav
+		.owl
+			&-prev
+				left: -60px
+
+			&-next
+				right: -60px
+			&-nav
+				& [class*="owl-"]
+					top: 35%
+
+//header navigation
+.header-block
+	position: absolute
+	z-index: 10
+	width: 100%
+	top: 0
+	background-color: $color-white
+	+box-shadow(0 3px 20px rgba(0,0,0,0.1))
+	&.is-sticky
+		position: Fixed !important
+		+animation(slide-down 0.5s ease-in-out)
+
+
+//toggle
+.navbar
+	padding: 2px 0
+	+tablet-max
+		padding-left: 0
+		padding-right: 0
+	.nav-item
+		&:not(:last-child)
+			+tablet-max
+				border-bottom: 1px solid $color-light-grey
+		&.active
+			.nav-link
+				color: rgba($color-black, 0.6)
+		.nav-link
+			color: rgba($color-black, 0.6)
+			padding: 5px 15px
+			&.active
+				color: $color-theme
+		.btn
+			+mobile
+				width: 100%
+	.navbar-brand
+		max-width: 200px
+		.logo
+			max-width: 28%
+		.logo2
+			max-width: 75%
+
+.navbar-toggler
+	border-color: transparent !important
+	padding: 0
+
+//Banner
+.banner
+	&-sm
+		height: 230px
+		color: $color-white
+		background-color: $color-dark-grey
+	&-panel
+		padding-top: 50px
+		background-color: #ededed
+		.owl-carousel
+			.item
+				min-height: 350px
+				+tablet
+					min-height: 400px
+				+desktop
+					min-height: 500px
+				+fullhd
+					min-height: 600px
+		.centered-block
+			+desktop
+				padding-right: 34%
+			+fullhd
+				padding-right: 40%
+			+widescreen
+				padding-right: 44%
+
+		.title1
+			line-height: 1
+		p
+			padding: 15px 0
+	
+		.is-outline
+			border-color: rgba($color-white, 1)
+			color: rgba($color-white, 1)
+			min-width: 150px
+			padding: 12px
+			&:hover
+				border-color: transparent
+				color: $color-white
+
+///onHover
+.onHover
+	opacity: 0
+	+transition-smooth
+	.fas, .fa, .far
+		display: block
+		padding-top: 15px
+
+//Shopping Block
+.image-block
+	.item
+		.image-centered
+			+cubic-slow
+		&:hover
+			cursor: pointer
+			.image-centered
+				+cubic-lazy
+				+transform(scale(1.2))
+
+.addCart
+	min-width: 150px
+
+.comparePrice
+	font-size: 90%
+	padding-left: 5px
+	text-decoration: line-through
+	color: $color-grey
+
+.item
+	.is-item
+		overflow: hidden
+		.fa, .fas, .far
+			color: $color-dark-grey
+			&:hover
+				color: $color-theme
+		a
+			&:after
+				content: ""
+				position: absolute
+				top: 0
+				left: 0
+				height: 100%
+				width: 100%
+		figure
+			color: $color-theme
+		.addCart
+			+transform(translateY(100%))
+			min-height: 40px
+			+border-radius(0)
+
+	&:hover
+		.addCart
+			+transform(translateY(0))
+			+transition-smooth
+		.onHover
+			opacity: 0.9
+		.translateUp
+			+transform(translateY(0))
+
+	.details
+		small
+			+border-dir('bottom', 1px, solid, $color-border)
+			display: block
+			padding: 5px 0
+			margin-bottom: 15px
+//Flexslider
+
+.flexslider 
+	margin-bottom: 0
+	.slides 
+		img
+			margin: 0 auto
+			height: 100%
+			width: auto
+		& > li
+			height: 400px
+			background-color: #fbfbfb
+			border: 1px solid rgba($color-light-grey, 0.7)
+	.flex-direction-nav
+		a
+			&:before
+				font-family: "Font Awesome 5 Free"
+				font-weight: 600
+			&.flex-next:before
+				content: "\f105"
+			&.flex-prev:before
+				content: "\f104"
+
+#carousel 
+	.slides > li
+		height: 100px
+		border: 1px solid rgba($color-light-grey, 0.3)
+//Footer
+.footer
+	background-color: #232323 
+	padding: 10px 15px
+	padding: 40px 0 0
+	color: #888888
+	line-height: 2
+	font-size: 15px
+	width: 100%
+	// min-height: 48px
+	display: inline-block
+	vertical-align: bottom
+	z-index: 1000
+	.is-outline
+		padding: 8px 15px
+		border-color: rgba($color-grey, 0.5)
+	.navbar-right
+		margin-right: 0
+	.title-up
+		color: $color-white
+		margin-bottom: 15px
+		+tablet-max
+			margin-top: 20px
+	ul
+		margin-bottom: 0
+		li
+			margin-bottom: 8px
+			a
+				color: $color-grey
+				&:hover
+					color: $color-white
+	p
+		line-height: 2
+		color: $color-grey
+		font-size: 15px
+	.text-center
+		color: #888888
+		border-top: 1px solid $color-dark-grey
+		margin-top: 30px
+		p
+			margin: 0
+
+	.modal-dialog
+		top: 7%
+	
+	.btn
+		padding: 1px 10px 2px
+		font-size: 12px
+		+border-radius(2px)
+
+	.list-inline
+		li
+			display: block
+			line-height: 1.8
+			margin-bottom: 0
+			padding: 0 2px
+			+desktop
+				display: inline-block
+
+	.left-block
+		width: auto
+
+	.col-sm-4
+		&:not(:last-child)
+			+mobile
+				border-bottom: 1px solid rgba($color-dark-grey, 0.9)
+
+
+.list-style
+	.fas, .fa, .far, .fab
+		margin-right: 10px
+		font-size: 14px
+
+.copyright
+	padding: 15px 0
+	font-size: 10px
+	margin-bottom: 0
+	opacity: 0.9
+	p
+		color: rgba($color-border, 0.4)
+	span
+		color: rgba($color-theme,0.9)
+
+
+
+
+
